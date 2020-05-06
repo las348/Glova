@@ -1,3 +1,44 @@
 iframe {
  margin: 20px;
 }
+
+/* Main page background and button CSS */
+.search-container{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    background-image: url(main2.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+h1{
+    color: rgb(255, 83, 83);
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+input{
+    height: 45px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    width: 300px;
+}
+
+button{
+    height: 45px;
+    width: 150px;
+    background-color: rgb(53, 150, 163);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+button:hover{
+    background-color: rgb(50, 111, 119);
+    border-radius: 20px;
+}
