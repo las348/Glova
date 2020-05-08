@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Mom & Pop Stop</title>
@@ -29,15 +30,62 @@
 
       <div id="search-container">
         <input type="text" id="search-input" placeholder="Enter recipe name...">
-        <button class="submit">Search</button>
-      </div>
+        <button>Search</button>
+      </div> 
     </form>
   </div>
-
-
+  <!-- Popular dishes div -->
+  <h2 id="popular-dish-h2">Popular Dish</h2>
+  <div class="row pre-selection-recipe">
+    <div class="col-md-2" id="meal30min">
+      <img src="images/30min.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">30min Meal</div>
+      </div>
+    </div>
+    <div class="col-md-2" id="breakfast">
+      <img src="images/breakfast.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">Breakfast</div>
+      </div>
+    </div>
+    <div class="col-md-2" id="chicken">
+      <img src="images/chicken.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">Chicken</div>
+      </div>
+    </div>
+    <div class="col-md-2" id="cake">
+      <img src="images/cake.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">Cake</div>
+      </div>
+    </div>
+    <div class="col-md-2" id="tacos">
+      <img src="images/tacos.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">Tacos</div>
+      </div>
+    </div>
+    <div class="col-md-2" id="pasta">
+      <img src="images/pasta.jpg" alt="" height="250" width="250">
+      <div class="content">
+        <div class="text">Pasta</div>
+      </div>
+    </div>
+  </div>
+  <!-- Recipes view div -->
   <div class="container" id="recipeContainer">
     <div id="recipe-view" class="card-deck">
+
     </div>
+    <div id="recipe-view-2" class="card-deck">
+
+    </div>
+    <div id="recipe-view-3" class="card-deck">
+
+    </div>
+
   </div>
 
 
@@ -45,38 +93,39 @@
   <div class="container chef-videos">
     <p id="heading">Featured Chef: Gordon Ramsay</p>
     <section id="video">
-    </section>    
-        <div class="card-deck">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" id="frame"></iframe>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title video1"></h5>
-              <p class="card-text" id="vid-desc"></p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" id="frame2"></iframe>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text" id="vid-desc2"></p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" id="frame3"></iframe>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text" id="vid-desc3"></p>
-            </div>
-          </div>
+    </section>
+    <div class="card-deck">
+      <div class="card">
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" id="frame"></iframe>
         </div>
+        <div class="card-body">
+          <h5 class="card-title video1"></h5>
+          <p class="card-text" id="vid-desc"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" id="frame2"></iframe>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text" id="vid-desc2"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" id="frame3"></iframe>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text" id="vid-desc3"></p>
+        </div>
+      </div>
+    </div>
   </div>
 
 
 </body>
+
 </html>

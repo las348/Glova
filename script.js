@@ -8,7 +8,7 @@ $(document).ready(function () {
         clear();
 
         var searchInput = document.getElementById("search-input").value;
-        var queryURL = "https://api.edamam.com/search?q=" + searchInput + "&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca";
+        var queryURL = "https://api.edamam.com/search?q=" + searchInput + "&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
 
 
         $.ajax({
@@ -16,12 +16,12 @@ $(document).ready(function () {
             method: "GET"
 
         }).then(function (response) {
-
+            // first 3 recipe card deck
             for (var i = 0; i < 3; i++) {
                 var imgURL = response.hits[i].recipe.image;
                 var recipeURL = response.hits[i].recipe.url;
                 var recipeLabel = response.hits[i].recipe.label;
-                var recipeCalories = Math.round(response.hits[i].recipe.calories);
+                var totalTime = response.hits[i].recipe.totalTime;
                 var dietLabels = response.hits[i].recipe.dietLabels;
 
                 var cardDiv = $("<div>").addClass("card");
@@ -33,10 +33,9 @@ $(document).ready(function () {
 
                 var ulGroup = $("<ul>").addClass("list-group list-group-flush");
 
-                var cardText1 = $("<li>").text("Calories: " + recipeCalories).addClass("list-group-item");
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
                 var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
                 var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
-
 
                 cardDiv.append(image);
                 cardDiv.append(cardBodyDiv);
@@ -48,20 +47,83 @@ $(document).ready(function () {
 
                 $("#recipe-view").prepend(cardDiv);
 
+            }
 
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
 
             }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+                
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            } 
+            
             $("#search-container").addClass("search-container");
             $("#main-container").removeClass("main-container").addClass("main-container-2")
-
+            
+            
             console.log(response);
 
 
         });
 
-        function clear() {
-            $("#recipe-view").empty();
-        }
+        
         //video search results
         searchResults();
             
@@ -102,7 +164,769 @@ $(document).ready(function () {
         }; //searchResults function
 
     });
+    function clear() {
+        $("#recipe-view").empty();
+        $("#recipe-view-2").empty();
+        $("#recipe-view-3").empty();
+    }
 
+    $("#meal30min").on("click", function (){
+        event.preventDefault();
+        clear();
+       
+        var queryURL = "https://api.edamam.com/search?q=stove&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=30-30";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+
+    $("#breakfast").on("click", function (){
+        event.preventDefault();
+        clear();
+        var queryURL = "https://api.edamam.com/search?q=breakfast&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+
+    $("#cake").on("click", function (){
+        event.preventDefault();
+        clear();
+        var queryURL = "https://api.edamam.com/search?q=cake&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+
+    $("#tacos").on("click", function (){
+        event.preventDefault();
+        clear();
+        var queryURL = "https://api.edamam.com/search?q=tacos&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+
+    $("#pasta").on("click", function (){
+        event.preventDefault();
+        clear();
+        var queryURL = "https://api.edamam.com/search?q=pasta&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+
+    $("#chicken").on("click", function (){
+        event.preventDefault();
+        clear();
+        var queryURL = "https://api.edamam.com/search?q=chicken&app_id=f2d4fbd8&app_key=67a6c13a7c80bc6b19e974541a385fca&time=1%2B";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+             // first 3 recipe card deck
+             for (var i = 0; i < 3; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view").prepend(cardDiv);
+
+            }
+
+             // second 3 recipe card deck
+             for (var i = 3; i < 6; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-2").prepend(cardDiv);
+
+            }
+
+            // third 3 recipe card deck
+            for (var i = 6; i < 9; i++) {
+                var imgURL = response.hits[i].recipe.image;
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeLabel = response.hits[i].recipe.label;
+                var totalTime = response.hits[i].recipe.totalTime;
+                var dietLabels = response.hits[i].recipe.dietLabels;
+
+                var cardDiv = $("<div>").addClass("card");
+                var image = $("<img>").attr("src", imgURL).addClass("card-img-top");
+
+                var cardBodyDiv = $("<div>").addClass("card-body");
+                var cardTitle = $("<h5>").text(recipeLabel).addClass("card-title");
+
+
+                var ulGroup = $("<ul>").addClass("list-group list-group-flush");
+
+                var cardText1 = $("<li>").text("Time: " + totalTime + " Minutes").addClass("list-group-item");
+                var cardText2 = $("<li>").text("Diet: " + dietLabels).addClass("list-group-item");
+                var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
+
+
+
+                cardDiv.append(image);
+                cardDiv.append(cardBodyDiv);
+                cardBodyDiv.append(cardTitle);
+                cardBodyDiv.append(ulGroup);
+                ulGroup.append(cardText1);
+                ulGroup.append(cardText2);
+                ulGroup.append(cardText3);
+
+                $("#recipe-view-3").prepend(cardDiv);
+
+            }
+
+            
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
+            console.log(response);
+
+
+        });
+
+    })
+ 
     //Youtube-Chef Gordon Videos
     var key = "AIzaSyCJSImhpn0LjuUOCoOW2gbZqEB4KxMeguU";
     var playlistId = 'PLTzMGnJjrsSyDJU9XClzZtuJ6GAIsvRk7';
