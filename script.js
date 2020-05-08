@@ -1,7 +1,6 @@
-//Edamam- Dellinger
 $(document).ready(function () {
-
-    //Edamam- 
+    var APIKey = "AIzaSyCJSImhpn0LjuUOCoOW2gbZqEB4KxMeguU";  //youtube key
+    //Edamam
     var searchInput = document.getElementById("search-input").textContent;
 
     $("button").on("click", function () {
@@ -39,7 +38,6 @@ $(document).ready(function () {
                 var cardText3 = $("<a>").text("Recipe").attr("href", recipeURL).addClass("list-group-item");
 
 
-
                 cardDiv.append(image);
                 cardDiv.append(cardBodyDiv);
                 cardBodyDiv.append(cardTitle);
@@ -55,7 +53,7 @@ $(document).ready(function () {
             }
             $("#search-container").addClass("search-container");
             $("#main-container").removeClass("main-container").addClass("main-container-2")
-            
+
             console.log(response);
 
 
@@ -64,54 +62,86 @@ $(document).ready(function () {
         function clear() {
             $("#recipe-view").empty();
         }
+        //video search results
+        searchResults();
+            
+        function searchResults() {
+
+            var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=05&type=video&key=" + APIKey + "&q=" + searchInput;
+
+            $.ajax({
+                url: youtubeURL,
+                method: "GET"
+            }).then(function (response) {
+
+                // Log the resulting object
+                console.log(response);
+                var resultVid = response.items[0].id.videoId;
+                var resultTitle = response.items[0].snippet.title;
+
+                var resultVid2 = response.items[1].id.videoId;
+                var resultTitle2 = response.items[1].snippet.title;
+
+                var resultVid3 = response.items[2].id.videoId;
+                var resultTitle3 = response.items[2].snippet.title;
+
+
+                $("#heading").addClass("hide");
+
+                $("#frame").attr("src", "https://www.youtube.com/embed/" + resultVid);
+                $("#vid-desc").text(resultTitle);
+
+                $("#frame2").attr("src", "https://www.youtube.com/embed/" + resultVid2);
+                $("#vid-desc2").text(resultTitle2);
+
+                $("#frame3").attr("src", "https://www.youtube.com/embed/" + resultVid3);
+                $("#vid-desc3").text(resultTitle3);
+
+
+            }); //vid search response
+        }; //searchResults function
 
     });
 
+    //Youtube-Chef Gordon Videos
+    var key = "AIzaSyCJSImhpn0LjuUOCoOW2gbZqEB4KxMeguU";
+    var playlistId = 'PLTzMGnJjrsSyDJU9XClzZtuJ6GAIsvRk7';
+    var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
-    //Youtube-Laureni
-    var tag = document.createElement('script');
-    tag.id = 'iframe-demo';
-    tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var options = {
+        part: 'snippet',
+        key: key,
+        maxResults: 5,
+        playlistId: playlistId
+    }
 
-    var player;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('existing-iframe-example', {
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
+    loadVids();
+
+    function loadVids() {
+        $.getJSON(URL, options, function (data) {
+            video1 = data.items[1].snippet.resourceId.videoId;
+            title1 = data.items[1].snippet.title;
+
+            video2 = data.items[2].snippet.resourceId.videoId;
+            title2 = data.items[2].snippet.title;
+
+            video4 = data.items[4].snippet.resourceId.videoId;
+            title4 = data.items[4].snippet.title;
+
+            var vidURL = "https://www.youtube.com/embed/" + video1;
+            $("#frame").attr("src", vidURL);
+            $("#vid-desc").text(title1);
+
+            var vidURL2 = "https://www.youtube.com/embed/" + video2;
+            $("#frame2").attr("src", vidURL2);
+            $("#vid-desc2").text(title2);
+
+            var vidURL4 = "https://www.youtube.com/embed/" + video4;
+            $("#frame3").attr("src", vidURL4);
+            $("#vid-desc3").text(title4);
+
         });
-    }
-    function onPlayerReady(event) {
-        document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
-    }
-    function changeBorderColor(playerStatus) {
-        var color;
-        if (playerStatus == -1) {
-            color = "#37474F"; // unstarted = gray
-        } else if (playerStatus == 0) {
-            color = "#FFFF00"; // ended = yellow
-        } else if (playerStatus == 1) {
-            color = "#33691E"; // playing = green
-        } else if (playerStatus == 2) {
-            color = "#DD2C00"; // paused = red
-        } else if (playerStatus == 3) {
-            color = "#AA00FF"; // buffering = purple
-        } else if (playerStatus == 5) {
-            color = "#FF6DOO"; // video cued = orange
-        }
-        if (color) {
-            document.getElementById('existing-iframe-example').style.borderColor = color;
-        }
-    }
-    function onPlayerStateChange(event) {
-        changeBorderColor(event.data);
-    }
-
-
-    //Chu
+    }// loadVids function
 
 
 });

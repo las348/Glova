@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
   <meta charset="utf-8">
   <title>Mom & Pop Stop</title>
@@ -27,30 +25,58 @@
   <div id="main-container" class="main-container">
     <form>
 
-        <h1 class="title">Recipe etc...</h1>
+      <h1 class="title">Recipe etc...</h1>
 
-        <div id="search-container">
-            <input type="text" id="search-input" placeholder="Enter recipe name...">
-            <button>Search</button>
-        </div>
-    </form>
-</div>
- 
-
-    <div class="container" id="recipeContainer">
-      <div id="recipe-view" class="card-deck">
-
+      <div id="search-container">
+        <input type="text" id="search-input" placeholder="Enter recipe name...">
+        <button class="submit">Search</button>
       </div>
-    </div>
+    </form>
+  </div>
 
-    <div>
-      <p>
-        Never cook alone
-      </p>
+
+  <div class="container" id="recipeContainer">
+    <div id="recipe-view" class="card-deck">
     </div>
-    <iframe id="existing-iframe-example" width="640" height="360" src="https://www.youtube.com/embed/60gBpmT4Usw"
-      frameborder="0" style="border: solid 4px #37474F"></iframe>
+  </div>
+
+
+  <!-- Youtube chef-->
+  <div class="container chef-videos">
+    <p id="heading">Featured Chef: Gordon Ramsay</p>
+    <section id="video">
+    </section>    
+        <div class="card-deck">
+          <div class="card">
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe class="embed-responsive-item" id="frame"></iframe>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title video1"></h5>
+              <p class="card-text" id="vid-desc"></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe class="embed-responsive-item" id="frame2"></iframe>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text" id="vid-desc2"></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe class="embed-responsive-item" id="frame3"></iframe>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text" id="vid-desc3"></p>
+            </div>
+          </div>
+        </div>
+  </div>
+
 
 </body>
-
 </html>
