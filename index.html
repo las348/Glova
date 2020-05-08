@@ -24,23 +24,21 @@
 <body>
 
   <!-- Search DIV container -->
-  <div class="search-container">
+  <div id="main-container" class="main-container">
     <form>
-        <h1>Recipe etc...</h1>
-        <div>
-            <input type="text" placeholder="Enter recipe name...">
-            <button>Give me the goods!</button>
+
+        <h1 class="title">Recipe etc...</h1>
+
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Enter recipe name...">
+            <button>Search</button>
         </div>
     </form>
 </div>
-
-  <div class="container">
-    <input type="text" id="search-input" placeholder="food">
-    <button>Search</button>
-
+ 
 
     <div class="container" id="recipeContainer">
-      <div id="recipe-view" class="card-group">
+      <div id="recipe-view" class="card-deck">
 
       </div>
     </div>

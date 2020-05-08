@@ -5,6 +5,7 @@ $(document).ready(function () {
     var searchInput = document.getElementById("search-input").textContent;
 
     $("button").on("click", function () {
+        event.preventDefault();
         clear();
 
         var searchInput = document.getElementById("search-input").value;
@@ -17,7 +18,7 @@ $(document).ready(function () {
 
         }).then(function (response) {
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 3; i++) {
                 var imgURL = response.hits[i].recipe.image;
                 var recipeURL = response.hits[i].recipe.url;
                 var recipeLabel = response.hits[i].recipe.label;
@@ -49,7 +50,12 @@ $(document).ready(function () {
 
                 $("#recipe-view").prepend(cardDiv);
 
+
+
             }
+            $("#search-container").addClass("search-container");
+            $("#main-container").removeClass("main-container").addClass("main-container-2")
+            
             console.log(response);
 
 
