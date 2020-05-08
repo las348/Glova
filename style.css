@@ -80,5 +80,11 @@ button:hover{
     margin-top: 10px;
 }
 
-
-
+/* Laureni */
+.hide {
+    visibility: hidden;
+ }
+ 
+ .showForecast {
+   visibility: visible;
+   } 
