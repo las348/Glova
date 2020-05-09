@@ -1,0 +1,118 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
+  align-items: center;
+  background-repeat: no repeat;
+  opacity: 95%;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+	color: #fff;
+	font-weight: 100;
+	font-size: 1em;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.w3-panel
+{
+  background: #0f0f0f;
+  text-align: center; 
+  width: 90%;
+  margin-left: 40px;
+}
+
+h1
+{
+  font-weight: 100;
+  font-size: 30px;
+}
+
+h2
+{
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+span {
+  font-weight: 900;
+}
+
+figure {
+  position: relative;
+  float: left;
+  max-width: 500px;
+  min-width: 250px;
+  width: 45%;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+  
+}
+
+img {
+  width: 500PX;
+  height: 500PX;
+  display: block;
+}
+
+figcaption {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  z-index: 100;
+  padding: 15px;
+  font-weight: 100;
+}
+
+
+.bio p, .bio h3 {
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+.bio figcaption{
+  transition:0.35s ease-in;
+}
+
+.bio h3 {
+  position: absolute;
+  opacity: 0;
+}
+
+.bio p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	width: 100%;
+	opacity: 0;
+}
+
+.bio:hover figcaption {
+  transform: translate3d(0,0,0);
+  background-color: rgba(0,0,0,0.6);
+}
+
+.bio:hover h3 {
+	color: #fff;
+  opacity: 1;
+	transform: translate3d(0,10px,0);
+}
+
+.bio:hover p {
+  color: #fff;
+	opacity: 1;
+	transform: translate3d(0,-10px,0);
+}
+
+.footer
+{
+  position: fixed;
+}
+
