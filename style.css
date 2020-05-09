@@ -94,7 +94,6 @@ button:hover{
     
   }
   .content {
-    opacity: 0;
     font-size: 40px;
     position: absolute;
     top: 0;
@@ -103,30 +102,17 @@ button:hover{
     background-color: rgba(0, 0, 0, 0.5);
     width: 250px;
     height: 250px;
-    -webkit-transition: all 400ms ease-out;
-    -moz-transition: all 400ms ease-out;
-    -o-transition: all 400ms ease-out;
-    -ms-transition: all 400ms ease-out;
-    transition: all 400ms ease-out;
     text-align: center;
     
   }
-  #chicken .content:hover, #cake .content:hover, #breakfast .content:hover, #tacos .content:hover, #pasta .content:hover, #meal30min .content:hover {
-    opacity: 1;
-    
-  }
+ 
   #chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text,#meal30min .content .text {
     height: 0;
-    opacity: 1;
     transition-delay: 0s;
     transition-duration: 0.4s;
-   
   }
   #chicken .content:hover .text, #cake .content:hover .text, #breakfast .content:hover .text, #tacos .content:hover .text, #pasta .content:hover .text, #meal30min .content:hover .text {
-    opacity: 1;
     transform: translateY(100px);
-    -webkit-transform: translateY(100px);
-    
   }
 
   .row{
