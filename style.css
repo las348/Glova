@@ -1,137 +1,142 @@
-
 /* Main page background and button CSS */
  
 .main-container{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    background-size: cover;
-    height: 80vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  background-size: cover;
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
 }
 
 .main-container-2{
-    display: flex;
-    background-size: cover;
-    height: 20vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
-    transition-duration: 2s;
+  display: flex;
+  background-size: cover;
+  height: 20vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
+  transition-duration: 2s;
 }
 
 .search-container{
-    position: absolute;
-    right: 50px;
-    top: 10px;
-    
+  position: absolute;
+  right: 50px;
+  top: 10px;
+  
 }
 
 
 h1{
-    color: rgb(255, 83, 83);
-    margin-bottom: 50px;
-    font-size: 50px;
+  color: rgb(255, 83, 83);
+  margin-bottom: 50px;
+  font-size: 50px;
 }
 
 input{
-    height: 45px;
-    padding: 5px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    width: 300px;
+  height: 45px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  width: 300px;
 }
 
 button{
-    height: 45px;
-    width: 100px;
-    background-color: rgb(53, 150, 163);
-    color: black;
-    border: none;
-    border-radius: 10px;
-    margin-left: 5px;
+  height: 45px;
+  width: 100px;
+  background-color: rgb(53, 150, 163);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
 button:hover{
-    background-color: rgb(50, 111, 119);
-    border-radius: 20px;
+  background-color: rgb(50, 111, 119);
+  border-radius: 20px;
 }
 
 /* Cards CSS */
 
 .card-img-top{
-  
-    border-right: solid  5px rgb(53, 150, 163);
-    border-top: solid  5px rgb(53, 150, 163);
-    border-left: solid  5px rgb(53, 150, 163);
+
+  border-right: solid  5px rgb(53, 150, 163);
+  border-top: solid  5px rgb(53, 150, 163);
+  border-left: solid  5px rgb(53, 150, 163);
 }
 .card-body{
-   
-    border-right: solid 5px rgb(53, 150, 163);
-    border-bottom: solid 5px rgb(53, 150, 163);
-    border-left: solid 5px rgb(53, 150, 163);
-    
+ 
+  border-right: solid 5px rgb(53, 150, 163);
+  border-bottom: solid 5px rgb(53, 150, 163);
+  border-left: solid 5px rgb(53, 150, 163);
+  
 }
 
 .card-deck{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* Popular dishes */
 
 #popular-dish-h2{
-    color: rgb(53, 150, 163);
-    text-align: center;
+  color: rgb(53, 150, 163);
+  text-align: center;
 }
 
 #chicken, #cake, #breakfast, #tacos, #pasta, #meal30min {
-    position: relative;
-    padding: 0;
-    width: 250px;
-    display: block;
-    cursor: pointer;
-    overflow: hidden;
-    
-  }
-  .content {
-    font-size: 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: rgb(255, 83, 83);
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 250px;
-    height: 250px;
-    text-align: center;
-    
-    
-  }
- 
-  #chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text,#meal30min .content .text {
-    height: 0;
-    transition-delay: 0s;
-    transition-duration: 0.4s;
-  }
-  #chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text, #meal30min .content .text {
-    transform: translateY(100px);
-    
-  }
+  position: relative;
+  padding: 0;
+  width: 250px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  
+}
+.content {
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgb(255, 83, 83);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  
+  
+}
 
-  .row{
+#chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text,#meal30min .content .text {
+  height: 0;
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+}
+#chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text, #meal30min .content .text {
+  transform: translateY(100px);
+  
+}
+
+.row{
 padding-left: 30px;
-  }
+}
 
 
 
 
 /* Laureni */
 .hide {
-    visibility: hidden;
- }
- 
+  visibility: hidden;
+}
+
 #heading {
-    background-color: rgb(70, 136, 145);
-    font-size: 24px;
-    text-align: center;
-    color: white;
+  background-color: rgb(70, 136, 145);
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+
+#footer {  
+  position: fixed;  
+  bottom: 0;  
+  z-index: 100;  
 }
