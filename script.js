@@ -289,7 +289,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
@@ -415,7 +415,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
@@ -541,7 +541,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
@@ -667,7 +667,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
@@ -793,7 +793,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
@@ -919,7 +919,7 @@ $(document).ready(function () {
           
           $("#search-container").addClass("search-container");
           $("#main-container").removeClass("main-container").addClass("main-container-2")
-          
+          $(".chef-videos").addClass("none");
           console.log(response);
 
 
