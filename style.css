@@ -135,6 +135,14 @@ padding-left: 30px;
   color: white;
 }
 
+.chef-videos {
+  margin-bottom: 50px;
+}
+
+.none {
+  display: none;
+}
+
 #footer {  
   position: fixed;  
   bottom: 0;  
