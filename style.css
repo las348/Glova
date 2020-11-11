@@ -6,7 +6,7 @@
   text-align: center;
   display: flex;
   background-size: cover;
-  height: 80vh;
+  height: 50vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/main2.jpg);
 }
 
@@ -22,7 +22,6 @@
   position: absolute;
   right: 50px;
   top: 10px;
-  
 }
 
 
