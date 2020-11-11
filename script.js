@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var APIKey = "AIzaSyCJSImhpn0LjuUOCoOW2gbZqEB4KxMeguU";  //youtube key
+  var APIKey = "AIzaSyDUy80Cdgn1WHCg-ot5WPQ34krmiadym48";  //youtube key
   //Edamam
   var searchInput = document.getElementById("search-input").textContent;
 
@@ -928,7 +928,7 @@ $(document).ready(function () {
   })
 
   //Youtube-Chef Gordon Videos
-  var key = "AIzaSyCJSImhpn0LjuUOCoOW2gbZqEB4KxMeguU";
+  var key = "AIzaSyDUy80Cdgn1WHCg-ot5WPQ34krmiadym48";
   var playlistId = 'PLTzMGnJjrsSyDJU9XClzZtuJ6GAIsvRk7';
   var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
@@ -940,6 +940,7 @@ $(document).ready(function () {
   }
 
   loadVids();
+
 
   function loadVids() {
       $.getJSON(URL, options, function (data) {
@@ -969,3 +970,4 @@ $(document).ready(function () {
 
 
 });
+

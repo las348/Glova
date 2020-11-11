@@ -81,17 +81,57 @@ button:hover{
 #popular-dish-h2{
   color: rgb(53, 150, 163);
   text-align: center;
+  margin: 70px 0 70px 0;
+}
+
+.popmeals {
+  margin: 0 50px 70px 50px;
 }
 
 #chicken, #cake, #breakfast, #tacos, #pasta, #meal30min {
-  position: relative;
   padding: 0;
-  width: 250px;
-  display: block;
-  cursor: pointer;
-  overflow: hidden;
-  
 }
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.img-fluid {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  /* width: 75%; */
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
 .content {
   font-size: 40px;
   position: absolute;
@@ -102,8 +142,6 @@ button:hover{
   width: 250px;
   height: 250px;
   text-align: center;
-  
-  
 }
 
 #chicken .content .text, #cake .content .text, #breakfast .content .text, #tacos .content .text, #pasta .content .text,#meal30min .content .text {
@@ -115,11 +153,6 @@ button:hover{
   transform: translateY(100px);
   
 }
-
-.row{
-padding-left: 30px;
-}
-
 
 
 
